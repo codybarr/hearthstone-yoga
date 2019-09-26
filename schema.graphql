@@ -1,0 +1,45 @@
+type Query {
+	cards(limit: Int, skip: Int, filter: Filter): [Card!]!
+	card(id: ID!): Card
+}
+
+input Filter {
+	cost: Int
+}
+
+type Card {
+	attack: Int
+	cardClass: String
+	cost: Int
+	dbfId: Int!
+	faction: String
+	health: Int
+	id: String!
+	name: String!
+	rarity: String
+	set: String!
+	type: String!
+	artist: String
+	collectible: Boolean
+	flavor: String
+	playRequirements: String
+	text: String
+	mechanics: [String]
+	referencedTags: [String]
+	race: String
+	elite: Boolean
+	targetingArrowText: String
+	durability: Int
+	overload: Int
+	spellDamage: Int
+	collectionText: String
+	armor: Int
+	entourage: [String]
+	puzzleType: Int
+	hideStats: Boolean
+	howToEarn: String
+	howToEarnGolden: String
+	classes: [String]
+	multiClassGroup: String
+	questReward: String
+}
