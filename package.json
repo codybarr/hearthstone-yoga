@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"scripts": {
 		"serve": "nodemon index.js",
-		"seed": "mongoimport -d hearthstone-deck-builder-dev -c cards --mode upsert --jsonArray w--file seed/cards.json"
+		"seed": "mongoimport -d hearthstone-deck-builder-dev -c cards --mode upsert --jsonArray --file seed/cards.json"
 	},
 	"dependencies": {
 		"graphql-yoga": "^1.18.1",
