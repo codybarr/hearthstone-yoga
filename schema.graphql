@@ -4,7 +4,12 @@ type Query {
 }
 
 input Filter {
-	cost: Int
+	cost: FilterInt
+}
+
+input FilterInt {
+	operation: String
+	value: Int
 }
 
 type Card {

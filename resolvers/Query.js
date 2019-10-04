@@ -2,12 +2,25 @@ const Card = require('../models/card')
 
 async function cards(parent, args, context) {
 	const { limit = 20, skip = 0, filter = {} } = args
-	console.log('Filter', filter)
-	return Card.find(filter, null, { skip, limit }).sort('field name')
+
+	let constructedFilter = {}
+	if (filter.cost) {
+		console.log('Cost: ', filter.cost)
+		constructedFilter.cost = {}
+		constructedFilter.cost[filter.cost.operation] = filter.cost.value
+	}
+
+	console.log('Constructed Query: ', constructedFilter)
+
+	const query = Card.find(constructedFilter, null, { skip, limit }).sort(
+		'field name'
+	)
+	console.log('Query: ', query)
+	console.log('Args: ', args)
 }
 
 async function card(parent, args, context) {
-	return Card.where({ dbfId: args.id }).findOne()
+	return await Card.where({ dbfId: args.id }).findOne()
 }
 
 module.exports = {
